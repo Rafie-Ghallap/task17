@@ -18,13 +18,10 @@ router.post('/register' , (req,res) => {
     }
     for(let user of users){
         if(user.username === username){
-            if(user.password === password){
-                res.status(400).json({message : 'User already exists'})
-                break;
-            }
+                return res.status(400).json({message : 'User already exists'})
         }
     }
-    res.json({message : 'Registration successful'})
+     return res.json({message : 'Registration successful'})
 })
 
 
